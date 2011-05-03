@@ -1,0 +1,83 @@
+.ui-actionsheet-wallpaper { 
+	background-color: black; 
+	opacity: .3; 
+	width: 100%; 
+	height: 100%; 
+	display: none;
+	z-index: 10;
+}
+.ui-actionsheet-content {
+	-moz-border-radius: 8px 8px 8px 8px;
+	-webkit-border-radius: 8px 8px 8px 8px;
+	background-color: silver;
+	border-style: solid;
+	border-width: 3px;
+	display: none;
+	height: auto;
+	position: absolute;
+	width: 230px;
+	z-index: 20;
+    -moz-box-shadow: 0px 0px 12px             rgba(0,0,0,.6);
+    -webkit-box-shadow: 0px 0px 12px         rgba(0,0,0,.6);
+    box-shadow: 0px 0px 12px                 rgba(0,0,0,.6); 
+}
+.ui-actionsheet-commandbtn {}
+.ui-actionsheet-closebtn {
+	color: white;
+	background: #5E6369; /* old browsers */
+	background: -moz-linear-gradient(top, #5E6369 0%, #52575D 1%, #40454E 46%, #141D26 50%, #252F38 98%, #303339 100%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5E6369), color-stop(1%,#52575D), color-stop(46%,#40454E), color-stop(50%,#141D26), color-stop(98%,#252F38), color-stop(100%,#303339)); /* webkit */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5E6369', endColorstr='#303339',GradientType=0 ); /* ie */
+	background: -o-linear-gradient(top, #5E6369 0%,#52575D 1%,#40454E 46%,#141D26 50%,#252F38 98%,#303339 100%); /* opera */
+}
+@-webkit-keyframes actionsheet-open-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes actionsheet-close-fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes actionsheet-open-slideup {
+  0% {
+    -webkit-transform: translateY(1100px);
+  }
+  70% {
+    -webkit-transform: translateY(-20px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+  }
+}
+@-webkit-keyframes actionsheet-close-slideup {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  30% {
+  	-webkit-transform: translateY(-30px);
+  }
+  100% {
+  	opacity: 0;
+    -webkit-transform: translateY(300px);
+  }
+}
+
+.ui-actionsheet-animateIn {
+	-webkit-animation-name: actionsheet-open-slideup;
+	-webkit-animation-delay: 0;
+	-webkit-animation-duration: 500ms;
+}
+.ui-actionsheet-animateOut {
+	-webkit-animation-name: actionsheet-close-slideup;
+	-webkit-animation-delay: 0;
+	-webkit-animation-duration: 500ms;
+}
