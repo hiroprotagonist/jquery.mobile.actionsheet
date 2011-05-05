@@ -1,32 +1,29 @@
-/*!
- * jquery.mobile.actionsheet v1
- *
- * Copyright (c) 2011 Stefan Gebhardt and Tobias Seelinger
- * Dual licensed under the MIT and GPL licenses.
- *
- * Date: 2011-05-03 17:11:00 (Tue, 3 May 2011)
- * Revision: 1
- */
 (function($,window,undefined){
 	$.widget("mobile.actionsheet",$.mobile.widget,{
 		wallpaper: undefined,
 		content: undefined,
 		_init: function() {
 			var self = this;
-			this.content= this.element.next('div')
-				.addClass('ui-actionsheet-content')
-				.remove()
-				.appendTo($(':jqmData(role="content")'));
+			this.content= this.element.next('div').addClass('ui-actionsheet-content');
+			if( this.content.parents( ':jqmData(role="content")' ).length == 0 ) {
+				// sheet-content is not part of the page-content,
+				// maybe it's part of the page-header: move it to page-content!
+				var currentPage = this.content.parents(':jqmData(role="page")');
+				var currentContent = currentPage.children(':jqmData(role="content")');
+				this.content.remove().appendTo(currentContent);
+			}
 			//setup command buttons
-			this.content.find(':jqmData(role="button")')
-				.addClass('ui-actionsheet-commandbtn');
+			this.content.find(':jqmData(role="button")').filter(':jqmData(rel!="close")')
+				.addClass('ui-actionsheet-commandbtn')
+				.bind('vclick', function(){
+					self.reset();
+				});
 			//setup close button
 			this.content.find(':jqmData(rel="close")')
-				.removeClass('ui-actionsheet-commandbtn')
 				.addClass('ui-actionsheet-closebtn')
 				.bind('vclick', function(){
 					self.close();
-			});
+				});
 			this.element.bind('vclick', function(){
 				self.open();
 			});
@@ -56,27 +53,31 @@
 		},
 		close: function() {
 			var self= this;
+			this.wallpaper.unbind('vclick');
 			if( !$.support.cssTransitions ) {
-				this.content.fadeOut();
 				this.wallpaper.remove();
-				this.wallpaper= undefined;
+				this.content.fadeOut();
 				this.element.bind('vclick', function(){
 					self.open();
 				});
 				return;
 			}
 			this.content.addClass("ui-actionsheet-animateOut");
+			this.wallpaper.remove();
 			this.content.animationComplete(function(event) {
-					$(event.target)
-						.removeClass("ui-actionsheet-animateOut")
-						.hide();
-					//re-install vclick event
-					self.element.bind('vclick', function(){
-						self.open();
-					});
+					self.reset();
 				});
-			self.wallpaper.remove();
-			self.wallpaper= undefined; 
+		},
+		reset: function() {
+			this.wallpaper.remove();
+			this.content
+				.removeClass("ui-actionsheet-animateOut")
+				.removeClass("ui-actionsheet-animateIn")
+				.hide();
+			var self= this;
+			this.element.bind('vclick', function(){
+				self.open();
+			});
 		}
 	});	
 
