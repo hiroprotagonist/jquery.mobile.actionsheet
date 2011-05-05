@@ -41,8 +41,8 @@
 				});
 			}, 500, this);
 
-			var height = $(document).height();
-			var width = $(document).width();
+			var height = $(window).height();
+			var width = $(window).width();
 			this.content.css(
 					{	'top': (height /2 -100),
 						'left': (width /2 -115)});
