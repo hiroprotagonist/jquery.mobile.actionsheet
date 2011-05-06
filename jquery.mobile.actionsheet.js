@@ -15,16 +15,16 @@
 			//setup command buttons
 			this.content.find(':jqmData(role="button")').filter(':jqmData(rel!="close")')
 				.addClass('ui-actionsheet-commandbtn')
-				.bind('vclick', function(){
+				.bind('click', function(event){
 					self.reset();
 				});
 			//setup close button
 			this.content.find(':jqmData(rel="close")')
 				.addClass('ui-actionsheet-closebtn')
-				.bind('vclick', function(){
+				.bind('click', function(event){
 					self.close();
 				});
-			this.element.bind('vclick', function(){
+			this.element.bind('click', function(){
 				self.open();
 			});
 			if( this.element.parents( ':jqmData(role="content")' ).length != 0 ) {
@@ -32,11 +32,11 @@
 			}
 		},
 		open: function() {
-			this.element.unbind('vclick'); //avoid twice opening
+			this.element.unbind('click'); //avoid twice opening
 			this.wallpaper= $('<div>', {'class':'ui-actionsheet-wallpaper'}).appendTo($('body'));
 			this.wallpaper.show();
 			window.setTimeout(function(self) {
-				self.wallpaper.bind('vclick', function() {
+				self.wallpaper.bind('click', function(event) {
 					self.close();
 				});
 			}, 500, this);
@@ -53,11 +53,11 @@
 		},
 		close: function() {
 			var self= this;
-			this.wallpaper.unbind('vclick');
+			this.wallpaper.unbind('click');
 			if( !$.support.cssTransitions ) {
 				this.wallpaper.remove();
 				this.content.fadeOut();
-				this.element.bind('vclick', function(){
+				this.element.bind('click', function(){
 					self.open();
 				});
 				return;
@@ -75,7 +75,7 @@
 				.removeClass("ui-actionsheet-animateIn")
 				.hide();
 			var self= this;
-			this.element.bind('vclick', function(){
+			this.element.bind('click', function(){
 				self.open();
 			});
 		}
