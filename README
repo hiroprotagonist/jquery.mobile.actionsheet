@@ -1,2 +1,24 @@
 This is an iOS like action sheet
-See index.html for doku
+
+See index.html more for doku.
+
+Its not a page its a popup you can use on a page. To do so, first, include actionsheet css and js to the first page of your application. 
+Then simply place a HTML Element on the page you like to open the popup.
+A link tag for example. Add the data-role "actionsheet" to it. U can place it within
+the header as well as within the content. Both should work.
+Now add a div directly following this link. Wrap all content you like to show in the popup
+into this div. Ready. See the following HTML code for details.
+
+Copy code
+<a data-icon="plus" data-role="actionsheet">Open</a>
+<div>
+      <a data-role="button" href="#"/>Action 1</a>
+      <a data-role="button" href="#"/>Action 2</a>
+      <a data-role="button" href="#"/>Action 3</a>
+      <br/>
+      <a data-role="button" data-rel="close" href="#"/>Cancel</a>
+</div>
+
+The example above contains the optional close button to close the widget. It also closes if
+you click or touch outside of the popup.
+If you like to change the in -out Animation you can do that by editing the keyframes in jquery.mobile.actionsheet.css
