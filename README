@@ -9,7 +9,6 @@ the header as well as within the content. Both should work.
 Now add a div directly following this link. Wrap all content you like to show in the popup
 into this div. Ready. See the following HTML code for details.
 
-Copy code
 <a data-icon="plus" data-role="actionsheet">Open</a>
 <div>
       <a data-role="button" href="#"/>Action 1</a>
@@ -22,3 +21,10 @@ Copy code
 The example above contains the optional close button to close the widget. It also closes if
 you click or touch outside of the popup.
 If you like to change the in -out Animation you can do that by editing the keyframes in jquery.mobile.actionsheet.css
+
+Features
+--------
+* Easy to configure CSS3 based keyframe animations
+* Popup content can be any HTML
+* No js coding needed.
+* Nice default look
