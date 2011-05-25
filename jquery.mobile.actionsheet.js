@@ -55,9 +55,10 @@
 			}, 500, this);
 
 			this._positionContent();
-	        $(window).bind('orientationchange.actionsheet',$.proxy(function () {
-	            this._positionContent();
-	        }, this));
+
+			$(window).bind('orientationchange.actionsheet',$.proxy(function () {
+				this._positionContent();
+			}, this));
 			
 			this.content.animationComplete(function(event) {
 					$(event.target).removeClass("ui-actionsheet-animateIn");
@@ -94,13 +95,13 @@
 			});
 		},
 		_positionContent: function() {
-	        var height = $(window).height();
-	        var width = $(window).width();
-	        var scrollPosition = $(window).scrollTop();
-	        this.content.css({
-	            'top': (scrollPosition + height / 2 - this.content.height() / 2),
-	            'left': (width / 2 - this.content.width() / 2)
-	        });
+			var height = $(window).height();
+			var width = $(window).width();
+			var scrollPosition = $(window).scrollTop();
+			this.content.css({
+				'top': (scrollPosition + height / 2 - this.content.height() / 2),
+				'left': (width / 2 - this.content.width() / 2)
+			});
 		}
 	});
 
