@@ -5,7 +5,7 @@
  * Dual licensed under the MIT and GPL Version 2 licenses.
  * 
  * Date: 2011-05-03 17:11:00 (Tue, 3 May 2011)
- * Revision: 1
+ * Revision: 1.1
  */
 (function($,window,undefined){
 	$.widget("mobile.actionsheet",$.mobile.widget,{
@@ -42,19 +42,23 @@
 		},
 		open: function() {
 			this.element.unbind('click'); //avoid twice opening
-			this.wallpaper= $('<div>', {'class':'ui-actionsheet-wallpaper'}).appendTo($('body'));
-			this.wallpaper.show();
+			
+			var cc= this.content.parents(':jqmData(role="content")');
+			this.wallpaper= $('<div>', {'class':'ui-actionsheet-wallpaper'})
+				.appendTo(cc)
+				.show();
+ 
 			window.setTimeout(function(self) {
 				self.wallpaper.bind('click', function(event) {
 					self.close();
 				});
 			}, 500, this);
 
-			var height = $(window).height();
-			var width = $(window).width();
-			this.content.css(
-					{	'top': (height /2 -100),
-						'left': (width /2 -115)});
+			this._positionContent();
+	        $(window).bind('orientationchange.actionsheet',$.proxy(function () {
+	            this._positionContent();
+	        }, this));
+			
 			this.content.animationComplete(function(event) {
 					$(event.target).removeClass("ui-actionsheet-animateIn");
 				});
@@ -63,19 +67,20 @@
 		close: function() {
 			var self= this;
 			this.wallpaper.unbind('click');
-			if( !$.support.cssTransitions ) {
+			$(window).unbind('orientationchange.actionsheet');
+			if( $.support.cssTransitions ) {
+				this.content.addClass("ui-actionsheet-animateOut");
+				this.wallpaper.remove();
+				this.content.animationComplete(function(event) {
+					self.reset();
+				});
+			} else {
 				this.wallpaper.remove();
 				this.content.fadeOut();
 				this.element.bind('click', function(){
 					self.open();
 				});
-				return;
 			}
-			this.content.addClass("ui-actionsheet-animateOut");
-			this.wallpaper.remove();
-			this.content.animationComplete(function(event) {
-					self.reset();
-				});
 		},
 		reset: function() {
 			this.wallpaper.remove();
@@ -87,8 +92,17 @@
 			this.element.bind('click', function(){
 				self.open();
 			});
+		},
+		_positionContent: function() {
+	        var height = $(window).height();
+	        var width = $(window).width();
+	        var scrollPosition = $(window).scrollTop();
+	        this.content.css({
+	            'top': (scrollPosition + height / 2 - this.content.height() / 2),
+	            'left': (width / 2 - this.content.width() / 2)
+	        });
 		}
-	});	
+	});
 
 	$( ":jqmData(role='page')" ).live( "pagecreate", function() { 
 		$( ":jqmData(role='actionsheet')", this ).each(function() {
