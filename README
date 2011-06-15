@@ -1,6 +1,11 @@
+---NEW---
+Added data-sheet. Assign a data-sheet ID in the trigger link, then assign your desired action sheet div that same ID.
+
+
+---Original---
 This is an iOS like action sheet
 
-See index.html more for doku.
+See index.html more for full example.
 
 Its not a page its a popup you can use on a page. To do so, first, include actionsheet css and js to the first page of your application. 
 Then simply place a HTML Element on the page you like to open the popup.
@@ -9,8 +14,8 @@ the header as well as within the content. Both should work.
 Now add a div directly following this link. Wrap all content you like to show in the popup
 into this div. Ready. See the following HTML code for details.
 
-<a data-icon="plus" data-role="actionsheet">Open</a>
-<div>
+<a data-icon="plus" data-role="actionsheet" data-sheet="uniqueID">Open</a>
+<div id="uniqueID">
       <a data-role="button" href="#"/>Action 1</a>
       <a data-role="button" href="#"/>Action 2</a>
       <a data-role="button" href="#"/>Action 3</a>
