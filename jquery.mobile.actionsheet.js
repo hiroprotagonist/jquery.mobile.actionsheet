@@ -13,7 +13,11 @@
 		content: undefined,
 		_init: function() {
 			var self = this;
-			this.content= this.element.next('div').addClass('ui-actionsheet-content');
+			
+                        //this.content= this.element.next('div').addClass('ui-actionsheet-content');
+                        var div_sheet = this.element.attr('data-sheet');
+                        this.content = $("#" + div_sheet).addClass('ui-actionsheet-content');
+
 			if( this.content.parents( ':jqmData(role="content")' ).length == 0 ) {
 				// sheet-content is not part of the page-content,
 				// maybe it's part of the page-header: move it to page-content!
