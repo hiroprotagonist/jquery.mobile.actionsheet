@@ -1,5 +1,6 @@
 ---NEW---
 Added data-sheet. Assign a data-sheet ID in the trigger link, then assign your desired action sheet div that same ID.
+I find it very useful to be able to put the action sheet div anywhere.
 
 
 ---Original---
