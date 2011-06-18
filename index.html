@@ -24,7 +24,9 @@
 		</div>
 	</div><!-- /header -->
 
-	<div data-role="content">	
+	<div data-role="content">
+		<!-- It is possible to associate toggle and sheet via html id -->
+		<a data-role='actionsheet' data-sheet='sheet0' id='a0'>Open Sheet 0</a>	
 		<p>There are two action sheets on this page. One as part of the header and one as part of the content</p>
 		<p>The one in the header uses an optional close button. See the markup for details</p>
 		<p>Primary animation is done using CSS3 use a webkit browser to view this site.</p> 
@@ -33,6 +35,9 @@
 			<a data-role="button" href="#">Update 1</a>
 			<a data-role="button" href="#">Update 2</a>
 			<a data-role="button" href="#">Update 3</a>
+		</div>
+		<div id='sheet0'>
+			<h1>This is sheet 0</h1>
 		</div>
 	</div><!-- /content -->
 </div><!-- /page -->
