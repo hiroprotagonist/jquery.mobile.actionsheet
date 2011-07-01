@@ -27,16 +27,16 @@
 			//setup command buttons
 			this.content.find(':jqmData(role="button")').filter(':jqmData(rel!="close")')
 				.addClass('ui-actionsheet-commandbtn')
-				.bind('vclick', function(){
+				.bind('tap', function(){
 					self.reset();
 				});
 			//setup close button
 			this.content.find(':jqmData(rel="close")')
 				.addClass('ui-actionsheet-closebtn')
-				.bind('vclick', function(){
+				.bind('tap', function(){
 					self.close();
 				});
-			this.element.bind('vclick', function(){
+			this.element.bind('tap', function(){
 				self.open();
 			});
 			if( this.element.parents( ':jqmData(role="content")' ).length !== 0 ) {
@@ -44,7 +44,7 @@
 			}
 		},
 		open: function() {
-			this.element.unbind('vclick'); //avoid twice opening
+			this.element.unbind('tap'); //avoid twice opening
 			
 			var cc= this.content.parents(':jqmData(role="content")');
 			this.wallpaper= $('<div>', {'class':'ui-actionsheet-wallpaper'})
@@ -52,7 +52,7 @@
 				.show();
  
 			window.setTimeout(function(self) {
-				self.wallpaper.bind('vclick', function() {
+				self.wallpaper.bind('tap', function() {
 					self.close();
 				});
 			}, 500, this);
@@ -70,7 +70,7 @@
 		},
 		close: function() {
 			var self = this;
-			this.wallpaper.unbind('vclick');
+			this.wallpaper.unbind('tap');
 			$(window).unbind('orientationchange.actionsheet');
 			if( $.support.cssTransitions ) {
 				this.content.addClass("ui-actionsheet-animateOut");
@@ -81,7 +81,7 @@
 			} else {
 				this.wallpaper.remove();
 				this.content.fadeOut();
-				this.element.bind('vclick', function(){
+				this.element.bind('tap', function(){
 					self.open();
 				});
 			}
@@ -93,7 +93,7 @@
 				.removeClass("ui-actionsheet-animateIn")
 				.hide();
 			var self= this;
-			this.element.bind('vclick', function(){
+			this.element.bind('tap', function(){
 				self.open();
 			});
 		},
