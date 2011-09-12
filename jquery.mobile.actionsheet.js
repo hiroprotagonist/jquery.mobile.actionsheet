@@ -11,8 +11,13 @@
 	$.widget("mobile.actionsheet",$.mobile.widget,{
 		wallpaper: undefined,
 		content: undefined,
+		hidden: false,
 		_init: function() {
 			var self = this;
+			var hid = this.element.attr('data-sheethidden');
+			if (typeof(hid) != 'undefined' && hid.toLowerCase() == 'true') {
+				this.hidden = true;
+			}
 			this.content = ((typeof this.element.jqmData('sheet') !== 'undefined')
 				? $('#' + this.element.jqmData('sheet'))
 				: this.element.next('div'))
@@ -41,6 +46,12 @@
 			});
 			if( this.element.parents( ':jqmData(role="content")' ).length !== 0 ) {
 				this.element.buttonMarkup();
+				if (this.hidden) {
+					this.element.hide();
+				} else {
+					this.element.buttonMarkup();
+				}
+			}
 			}
 		},
 		open: function() {
