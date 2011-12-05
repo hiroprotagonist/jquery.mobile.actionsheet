@@ -68,7 +68,6 @@
 			}
 		},
 		close: function() {
-			console.log(this);
 			var self = this;
 			this.wallpaper.unbind('tap');
 			$(window).unbind('orientationchange.actionsheet');
