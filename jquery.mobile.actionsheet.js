@@ -50,25 +50,25 @@
 			this.wallpaper= $('<div>', {'class':'ui-actionsheet-wallpaper'})
 				.appendTo(cc)
 				.show();
- 
-			window.setTimeout(function(self) {
-				self.wallpaper.bind('tap', function() {
-					self.close();
-				});
-			}, 500, this);
-
+			
+			window.setTimeout($.proxy(this._wbc, this), 500);
 			this._positionContent();
 
 			$(window).bind('orientationchange.actionsheet',$.proxy(function () {
 				this._positionContent();
 			}, this));
-			
-			this.content.animationComplete(function(event) {
-					$(event.target).removeClass("ui-actionsheet-animateIn");
-				});
-			this.content.addClass("ui-actionsheet-animateIn").show();
+		
+			if( $.support.cssTransitions ) {
+				this.content.animationComplete(function(event) {
+						$(event.target).removeClass("ui-actionsheet-animateIn");
+					});
+				this.content.addClass("ui-actionsheet-animateIn").show();
+			} else {
+				this.content.fadeIn();
+			}
 		},
 		close: function() {
+			console.log(this);
 			var self = this;
 			this.wallpaper.unbind('tap');
 			$(window).unbind('orientationchange.actionsheet');
@@ -105,6 +105,9 @@
 				'top': (scrollPosition + height / 2 - this.content.height() / 2),
 				'left': (width / 2 - this.content.width() / 2)
 			});
+		},
+		_wbc: function() {
+			this.wallpaper.bind("tap", $.proxy(this.close, this));
 		}
 	});
 
