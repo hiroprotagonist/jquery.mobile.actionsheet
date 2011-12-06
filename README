@@ -1,6 +1,6 @@
 This is an iOS like action sheet
 
-See index.html for full example.
+See examples folder
 
 Its not a page its a popup you can use on a page. To do so, first, include actionsheet css and js to the first page of your application. 
 Then simply place a HTML Element on the page you like to open the popup.
