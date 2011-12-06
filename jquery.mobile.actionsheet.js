@@ -21,7 +21,7 @@
 				// sheet-content is not part of the page-content,
 				// maybe it's part of the page-header: move it to page-content!
 				var currentContent = 
-					this.content.parents(':jqmData(role="page")').children(':jqmData(role="content")');
+					this.element.parents(':jqmData(role="page")').children(':jqmData(role="content")');
 				this.content.remove().appendTo(currentContent);
 			}
 			//setup command buttons
