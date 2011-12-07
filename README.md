@@ -17,7 +17,8 @@ Then simply place a HTML Element on the page you like to open the popup.
 A link tag for example. Add the data-role "actionsheet" to it. You can place it within
 the header as well as within the content. Both should work.
 Now add a div directly following this link. Wrap all content you like to show in the popup
-into this div. Ready. See the following HTML 
+into this div. Ready. See the following HTML
+
 ~~~
     <a data-icon="plus" data-role="actionsheet">Open</a>
     <div>
@@ -29,6 +30,7 @@ into this div. Ready. See the following HTML
         <a data-role="button" data-rel="close" href="#">Cancel</a>
     </div>
 ~~~
+
 Also you can use html ids to associate toggle and sheet. This way the sheet must not directly follow the toggle.
 
     <a data-role="actionsheet" data-sheet='sheet0'>Open</a>
