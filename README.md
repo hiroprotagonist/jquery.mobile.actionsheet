@@ -18,6 +18,7 @@ A link tag for example. Add the data-role "actionsheet" to it. You can place it 
 the header as well as within the content. Both should work.
 Now add a div directly following this link. Wrap all content you like to show in the popup
 into this div. Ready. See the following HTML code for details.
+
     <a data-icon="plus" data-role="actionsheet">Open</a>
     <div>
       <a data-role="button" href="#">Action 1</a>
@@ -27,7 +28,9 @@ into this div. Ready. See the following HTML code for details.
       <!-- This close button is optional. The widget also closes if you click or touch outside of the popup -->
       <a data-role="button" data-rel="close" href="#">Cancel</a>
     </div>
+
 Also you can use html ids to associate toggle and sheet. This way the sheet must not directly follow the toggle.
+
     <a data-role="actionsheet" data-sheet='sheet0'>Open</a>
 
     .... A lot a lot a lot markup in between ....
@@ -35,6 +38,7 @@ Also you can use html ids to associate toggle and sheet. This way the sheet must
     <div id='sheet0'>
         <h1>This is sheet0 speaking</h1>
     </div>
+
 * If you like to change the in -out Animation you can do that by editing the keyframes in jquery.mobile.actionsheet.css
 
 
