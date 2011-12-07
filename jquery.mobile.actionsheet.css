@@ -5,9 +5,9 @@
 	position: absolute;
 	top:0;
 	left: 0;
-	min-height: 100%; 
-	height: auto;
+	height: 100%;
 	width: 100%;
+	z-index: 19; /* above content underneath sheet */
 }
 .ui-actionsheet-content {
 	-moz-border-radius: 8px;
@@ -21,9 +21,9 @@
 	position: absolute;
 	width: 230px;
 	z-index: 20;
-	-moz-box-shadow: 0px 0px 12px             rgba(0,0,0,.6);
-	-webkit-box-shadow: 0px 0px 12px         rgba(0,0,0,.6);
-	box-shadow: 0px 0px 12px                 rgba(0,0,0,.6); 
+	-moz-box-shadow: 0px 0px 12px rgba(0,0,0,.6);
+	-webkit-box-shadow: 0px 0px 12px rgba(0,0,0,.6);
+	box-shadow: 0px 0px 12px rgba(0,0,0,.6); 
 }
 .ui-actionsheet-commandbtn {}
 .ui-actionsheet-closebtn {

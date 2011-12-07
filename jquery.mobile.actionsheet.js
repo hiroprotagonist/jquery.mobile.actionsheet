@@ -5,7 +5,7 @@
  * Dual licensed under the MIT and GPL Version 2 licenses.
  * 
  * Date: 2011-05-03 17:11:00 (Tue, 3 May 2011)
- * Revision: 1
+ * Revision: 1.1
  */
 (function($,window){
 	$.widget("mobile.actionsheet",$.mobile.widget,{
@@ -27,16 +27,16 @@
 			//setup command buttons
 			this.content.find(':jqmData(role="button")').filter(':jqmData(rel!="close")')
 				.addClass('ui-actionsheet-commandbtn')
-				.bind('tap', function(){
+				.bind('click', function(){
 					self.reset();
 				});
 			//setup close button
 			this.content.find(':jqmData(rel="close")')
 				.addClass('ui-actionsheet-closebtn')
-				.bind('tap', function(){
+				.bind('click', function(){
 					self.close();
 				});
-			this.element.bind('tap', function(){
+			this.element.bind('click', function(){
 				self.open();
 			});
 			if( this.element.parents( ':jqmData(role="content")' ).length !== 0 ) {
@@ -44,14 +44,17 @@
 			}
 		},
 		open: function() {
-			this.element.unbind('tap'); //avoid twice opening
+			this.element.unbind('click'); //avoid twice opening
 			
 			var cc= this.content.parents(':jqmData(role="content")');
 			this.wallpaper= $('<div>', {'class':'ui-actionsheet-wallpaper'})
 				.appendTo(cc)
 				.show();
 			
-			window.setTimeout($.proxy(this._wbc, this), 500);
+			//window.setTimeout($.proxy(this._wbc, this), 500);
+			this.wallpaper.bind(
+					"click",
+					$.proxy(function() { this.close(); },this));
 			this._positionContent();
 
 			$(window).bind('orientationchange.actionsheet',$.proxy(function () {
@@ -67,9 +70,9 @@
 				this.content.fadeIn();
 			}
 		},
-		close: function() {
+		close: function(event) {
 			var self = this;
-			this.wallpaper.unbind('tap');
+			this.wallpaper.unbind('click');
 			$(window).unbind('orientationchange.actionsheet');
 			if( $.support.cssTransitions ) {
 				this.content.addClass("ui-actionsheet-animateOut");
@@ -80,7 +83,7 @@
 			} else {
 				this.wallpaper.remove();
 				this.content.fadeOut();
-				this.element.bind('tap', function(){
+				this.element.bind('click', function(){
 					self.open();
 				});
 			}
@@ -92,7 +95,7 @@
 				.removeClass("ui-actionsheet-animateIn")
 				.hide();
 			var self= this;
-			this.element.bind('tap', function(){
+			this.element.bind('click', function(){
 				self.open();
 			});
 		},
@@ -104,9 +107,6 @@
 				'top': (scrollPosition + height / 2 - this.content.height() / 2),
 				'left': (width / 2 - this.content.width() / 2)
 			});
-		},
-		_wbc: function() {
-			this.wallpaper.bind("tap", $.proxy(this.close, this));
 		}
 	});
 
