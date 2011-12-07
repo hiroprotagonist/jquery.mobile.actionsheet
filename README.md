@@ -20,15 +20,15 @@ Now add a div directly following this link. Wrap all content you like to show in
 into this div. Ready. See the following HTML
 
 ~~~
-    <a data-icon="plus" data-role="actionsheet">Open</a>
-    <div>
-        <a data-role="button" href="#">Action 1</a>
-        <a data-role="button" href="#">Action 2</a>
-        <a data-role="button" href="#">Action 3</a>
-        <br/>
-        <!-- This close button is optional. The widget also closes if you click or touch outside of the popup -->
-        <a data-role="button" data-rel="close" href="#">Cancel</a>
-    </div>
+<a data-icon="plus" data-role="actionsheet">Open</a>
+<div>
+    <a data-role="button" href="#">Action 1</a>
+    <a data-role="button" href="#">Action 2</a>
+    <a data-role="button" href="#">Action 3</a>
+    <br/>
+    <!-- This close button is optional. The widget also closes if you click or touch outside of the popup -->
+    <a data-role="button" data-rel="close" href="#">Cancel</a>
+</div>
 ~~~
 
 Also you can use html ids to associate toggle and sheet. This way the sheet must not directly follow the toggle.
@@ -53,6 +53,6 @@ Features
 
 Hint
 ----
-* If you are looking for a programmatic javascript approach take a look at this
+If you are looking for a programmatic javascript approach take a look at this
 usefull plugin: https://github.com/jtsage/jquery-mobile-simpledialog
 
