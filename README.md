@@ -1,10 +1,20 @@
-This is an iOS like action sheet
+An iOS like action sheet for jQuery Mobile
+==========================================
 
-See examples folder
+What is it
+----------
+A very easy to use and fully markup-driven action sheet
 
-Its not a page its a popup you can use on a page. To do so, first, include actionsheet css and js to the first page of your application. 
+How To Use
+----------
+* Clone this repository or download a tagged version. I suggest to use the
+master branch but jqm 1.alpha and 1.beta may work better with v1.
+* If you prefer "learning by doing" play around with pages contained in the
+examples folder.
+* If not;
+Include actionsheet css and js to the first page of your application. 
 Then simply place a HTML Element on the page you like to open the popup.
-A link tag for example. Add the data-role "actionsheet" to it. U can place it within
+A link tag for example. Add the data-role "actionsheet" to it. You can place it within
 the header as well as within the content. Both should work.
 Now add a div directly following this link. Wrap all content you like to show in the popup
 into this div. Ready. See the following HTML code for details.
@@ -29,7 +39,7 @@ Also you can use html ids to associate toggle and sheet. This way the sheet must
 </div>
 
 
-If you like to change the in -out Animation you can do that by editing the keyframes in jquery.mobile.actionsheet.css
+* If you like to change the in -out Animation you can do that by editing the keyframes in jquery.mobile.actionsheet.css
 
 
 Features
@@ -38,3 +48,9 @@ Features
 * Popup content can be any HTML
 * No js coding needed.
 * Nice default look
+
+Hint
+----
+* If you are looking for a programmatic javascript approach take a look at this
+usefull plugin: https://github.com/jtsage/jquery-mobile-simpledialog
+
