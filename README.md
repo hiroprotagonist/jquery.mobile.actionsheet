@@ -30,7 +30,7 @@ into this div. Ready. See the following HTML code for details.
     </div>
 
 Also you can use html ids to associate toggle and sheet. This way the sheet must not directly follow the toggle.
-
+{{{
     <a data-role="actionsheet" data-sheet='sheet0'>Open</a>
 
     .... A lot a lot a lot markup in between ....
@@ -38,7 +38,7 @@ Also you can use html ids to associate toggle and sheet. This way the sheet must
     <div id='sheet0'>
         <h1>This is sheet0 speaking</h1>
     </div>
-
+}}}
 * If you like to change the in -out Animation you can do that by editing the keyframes in jquery.mobile.actionsheet.css
 
 
