@@ -1,11 +1,11 @@
 /*
- * jquery.mobile.actionsheet v1
+ * jquery.mobile.actionsheet v2
  *
  * Copyright (c) 2011, Stefan Gebhardt and Tobias Seelinger
  * Dual licensed under the MIT and GPL Version 2 licenses.
  * 
  * Date: 2011-05-03 17:11:00 (Tue, 3 May 2011)
- * Revision: 1.1
+ * Revision: 2
  */
 (function($,window){
 	$.widget("mobile.actionsheet",$.mobile.widget,{
