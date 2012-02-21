@@ -5,7 +5,7 @@
  * Dual licensed under the MIT and GPL Version 2 licenses.
  * 
  * Date: 2011-05-03 17:11:00 (Tue, 3 May 2011)
- * Revision: 2
+ * Revision: 2.1
  */
 (function($,window){
 	$.widget("mobile.actionsheet",$.mobile.widget,{
@@ -15,15 +15,12 @@
 			var self = this;
 			this.content = ((typeof this.element.jqmData('sheet') !== 'undefined')
 				? $('#' + this.element.jqmData('sheet'))
-				: this.element.next('div'))
-				.addClass('ui-actionsheet-content');
-			if( this.content.parents( ':jqmData(role="content")' ).length === 0 ) {
-				// sheet-content is not part of the page-content,
-				// maybe it's part of the page-header: move it to page-content!
-				var currentContent = 
-					this.element.parents(':jqmData(role="page")').children(':jqmData(role="content")');
-				this.content.remove().appendTo(currentContent);
-			}
+				: this.element.next('div')).addClass('ui-actionsheet-content');
+			// Move content to parent page
+			// Otherwise there is an error i will describe here soon
+			var parentPage = this.element.parents(':jqmData(role="page")');
+			this.content.remove().appendTo(parentPage);
+
 			//setup command buttons
 			this.content.find(':jqmData(role="button")').filter(':jqmData(rel!="close")')
 				.addClass('ui-actionsheet-commandbtn')
@@ -46,7 +43,7 @@
 		open: function() {
 			this.element.unbind('click'); //avoid twice opening
 			
-			var cc= this.content.parents(':jqmData(role="content")');
+			var cc= this.content.parents(':jqmData(role="page")');
 			this.wallpaper= $('<div>', {'class':'ui-actionsheet-wallpaper'})
 				.appendTo(cc)
 				.show();
