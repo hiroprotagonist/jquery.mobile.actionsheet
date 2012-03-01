@@ -58,10 +58,18 @@
 		<div data-role='navbar'>
 			<ul>
 				<li>
-					<a data-role='actionsheet' data-sheet='login' data-icon='star'>Form Example</a>
+					<a data-role='actionsheet' 
+						data-sheet='login' 
+						data-icon='star' 
+						id='login_form_toggle'
+						onclick="$('a#gotogoogle_toggle').actionsheet('close');">Form Example</a>
 				</li>
 				<li>
-					<a data-role='actionsheet' data-sheet='external_link' data-icon='grid'>External Link</a>
+					<a data-role='actionsheet' 
+						data-sheet='external_link' 
+						data-icon='grid'
+						id='gotogoogle_toggle'
+						onclick="$('a#login_form_toggle').actionsheet('close');">External Link</a>
 				</li>
 			</ul>
 		</div>
