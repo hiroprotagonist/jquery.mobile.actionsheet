@@ -34,23 +34,6 @@
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5E6369', endColorstr='#303339',GradientType=0 ); /* ie */
 	background: -o-linear-gradient(top, #5E6369 0%,#52575D 1%,#40454E 46%,#141D26 50%,#252F38 98%,#303339 100%); /* opera */
 }
-@-webkit-keyframes actionsheet-open-fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes actionsheet-close-fade {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
 @-webkit-keyframes actionsheet-open-slideup {
   0% {
     -webkit-transform: translateY(1100px);
@@ -64,7 +47,7 @@
 }
 @-webkit-keyframes actionsheet-close-slideup {
   0% {
-    -webkit-transform: translateY(0);
+    -webkit-transform: translateY(0); 
   }
   30% {
   	-webkit-transform: translateY(-30px);
@@ -74,14 +57,43 @@
     -webkit-transform: translateY(300px);
   }
 }
+@-moz-keyframes actionsheet-open-slideup {
+  0% {
+    -moz-transform: translateY(1100px);
+  }
+  70% {
+    -moz-transform: translateY(-20px);
+  }
+  100% {
+    -moz-transform: translateY(0);
+  }
+}
+@-moz-keyframes actionsheet-close-slideup {
+  0% {
+    -moz-transform: translateY(0); 
+  }
+  30% {
+  	-moz-transform: translateY(-30px);
+  }
+  100% {
+  	opacity: 0;
+    -moz-transform: translateY(300px);
+  }
+}
 
 .ui-actionsheet-animateIn {
 	-webkit-animation-name: actionsheet-open-slideup;
 	-webkit-animation-delay: 0;
 	-webkit-animation-duration: 500ms;
+	-moz-animation-name: actionsheet-open-slideup;
+	-moz-animation-delay: 0;
+	-moz-animation-duration: 500ms;	
 }
 .ui-actionsheet-animateOut {
 	-webkit-animation-name: actionsheet-close-slideup;
 	-webkit-animation-delay: 0;
-	-webkit-animation-duration: 500ms;
+	-webkit-animation-duration: 500ms;	
+	-moz-animation-name: actionsheet-close-slideup;
+	-moz-animation-delay: 0;
+	-moz-animation-duration: 500ms;
 }
