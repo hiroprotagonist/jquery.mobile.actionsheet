@@ -47,7 +47,7 @@
 }
 @-webkit-keyframes actionsheet-close-slideup {
   0% {
-    -webkit-transform: translateY(0); 
+    -webkit-transform: translateY(0);
   }
   30% {
   	-webkit-transform: translateY(-30px);
