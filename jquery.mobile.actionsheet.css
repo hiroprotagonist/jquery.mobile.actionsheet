@@ -80,7 +80,22 @@
     -moz-transform: translateY(300px);
   }
 }
-
+@-webkit-keyframes actionsheet-open-fade {
+	from { opacity: 0 }
+	to { opacity: 1 }
+}
+@-webkit-keyframes actionsheet-close-fade {
+	from { opacity: 1 }
+	to { opacity: 0 }
+}
+@-moz-keyframes actionsheet-open-fade {
+	from { opacity: 0 }
+	to { opacity: 1 }
+}
+@-moz-keyframes actionsheet-close-fade {
+	0% { opacity: 1 }
+	100% { opacity: 0 }
+}
 .ui-actionsheet-animateIn {
 	-webkit-animation-name: actionsheet-open-slideup;
 	-webkit-animation-delay: 0;

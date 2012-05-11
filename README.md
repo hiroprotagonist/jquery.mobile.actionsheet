@@ -41,8 +41,14 @@ Also you can use html ids to associate toggle and sheet. This way the sheet must
         <h1>This is sheet0 speaking</h1>
     </div>
     
-* If you like to change the in -out Animation you can do that by editing the keyframes in jquery.mobile.actionsheet.css
-
+Adjust the fade animation
+-------------------------
+Just like you can change the look of the "Action Sheet" with CSS, you can change the animation via CSS.
+The default CSS contains two different animations. "actionsheet-open/close-slideup" and actionsheet-open/close-fade.
+The standard uses "actionsheet-open/close-slideup". If you like the fade animation better change the CSS 
+classes ".ui-actionsheet-animateIn" as also ".ui-actionsheet-animateOut".
+Change the property"-webkit-animation-name" and "-moz-animation-name" accordingly.
+Of course you can also use your own animations.
 
 Features
 --------
