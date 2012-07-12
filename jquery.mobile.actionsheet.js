@@ -57,14 +57,17 @@
 			$(window).bind('orientationchange.actionsheet',$.proxy(function () {
 				this._positionContent();
 			}, this));
-		
+
 			if( $.support.cssTransitions ) {
 				this.content.animationComplete(function(event) {
-						$(event.target).removeClass("ui-actionsheet-animateIn");
+						$(event.target).removeClass("ui-actionsheet-animateIn ui-actionsheet-opening");
 					});
-				this.content.addClass("ui-actionsheet-animateIn").show();
+				this.content.addClass("ui-actionsheet-animateIn ui-actionsheet-opening").show();
 			} else {
-				this.content.fadeIn();
+				this.content.addClass("ui-actionsheet-opening");
+				this.content.fadeIn(function () {
+					$(this).removeClass("ui-actionsheet-opening");
+				});
 			}
 		},
 		close: function(event) {
