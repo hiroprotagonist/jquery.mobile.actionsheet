@@ -10,19 +10,20 @@
 	z-index: 19; /* above content underneath sheet */
 }
 .ui-actionsheet-content {
-	-moz-border-radius: 8px;
-	-webkit-border-radius: 8px;
+	background: -moz-linear-gradient(top,  rgba(180,193,196,0.61) 0%, rgba(120,130,127,0.61) 5%, rgba(24,34,24,0.61) 8%, rgba(29,23,26,0.61) 97%, rgba(29,23,26,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(180,193,196,0.61)), color-stop(5%,rgba(120,130,127,0.61)), color-stop(8%,rgba(24,34,24,0.61)), color-stop(97%,rgba(29,23,26,0.61)), color-stop(100%,rgba(29,23,26,1)));
+	background: -webkit-linear-gradient(top,  rgba(180,193,196,0.61) 0%,rgba(120,130,127,0.61) 5%,rgba(24,34,24,0.61) 8%,rgba(29,23,26,0.61) 97%,rgba(29,23,26,1) 100%);
+	background: -o-linear-gradient(top,  rgba(180,193,196,0.61) 0%,rgba(120,130,127,0.61) 5%,rgba(24,34,24,0.61) 8%,rgba(29,23,26,0.61) 97%,rgba(29,23,26,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(180,193,196,0.61) 0%,rgba(120,130,127,0.61) 5%,rgba(24,34,24,0.61) 8%,rgba(29,23,26,0.61) 97%,rgba(29,23,26,1) 100%);
+	background: linear-gradient(to bottom,  rgba(180,193,196,0.61) 0%,rgba(120,130,127,0.61) 5%,rgba(24,34,24,0.61) 8%,rgba(29,23,26,0.61) 97%,rgba(29,23,26,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9cb4c1c4', endColorstr='#1d171a',GradientType=0 );
 	border-radius: 8px;
-	background-color: silver;
-	border-style: solid;
-	border-width: 3px;
+	border: 1px solid black;
 	display: none;
 	height: auto;
 	position: absolute;
 	width: 230px;
 	z-index: 20;
-	-moz-box-shadow: 0px 0px 12px rgba(0,0,0,.6);
-	-webkit-box-shadow: 0px 0px 12px rgba(0,0,0,.6);
 	box-shadow: 0px 0px 12px rgba(0,0,0,.6); 
 }
 .ui-actionsheet-commandbtn {}
