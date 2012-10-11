@@ -1,12 +1,11 @@
 .ui-actionsheet-commandbtn.destructive {
-	background: #843631; /* Old browsers */
-	background: -moz-linear-gradient(top,  #843631 0%, #964743 50%, #84312b 51%, #870a00 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#843631), color-stop(50%,#964743), color-stop(51%,#84312b), color-stop(100%,#870a00)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #843631 0%,#964743 50%,#84312b 51%,#870a00 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #843631 0%,#964743 50%,#84312b 51%,#870a00 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #843631 0%,#964743 50%,#84312b 51%,#870a00 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #843631 0%,#964743 50%,#84312b 51%,#870a00 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#843631', endColorstr='#870a00',GradientType=0 ); /* IE6-9 */
+	background: #843631 !important; /* Old browsers */
+	background: -moz-linear-gradient(top,  #843631 0%, #964743 50%, #84312b 51%, #870a00 100%) !important; /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#843631), color-stop(50%,#964743), color-stop(51%,#84312b), color-stop(100%,#870a00)) !important; /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #843631 0%,#964743 50%,#84312b 51%,#870a00 100%) !important; /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #843631 0%,#964743 50%,#84312b 51%,#870a00 100%) !important; /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #843631 0%,#964743 50%,#84312b 51%,#870a00 100%) !important; /* IE10+ */
+	background: linear-gradient(to bottom,  #843631 0%,#964743 50%,#84312b 51%,#870a00 100%) !important; /* W3C */
 	color: white;
 	text-shadow: none;
 }

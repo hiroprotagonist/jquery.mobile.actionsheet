@@ -110,7 +110,7 @@
 		}
 	});
 
-	$( ":jqmData(role='page')" ).live( "pagecreate", function() { 
+	$( ":jqmData(role='page')" ).live( "pageinit", function() { 
 		$( ":jqmData(role='actionsheet')", this ).each(function() {
 			$(this).actionsheet();
 		});
