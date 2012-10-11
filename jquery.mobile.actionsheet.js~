@@ -5,7 +5,7 @@
  * Dual licensed under the MIT and GPL Version 2 licenses.
  * 
  * Date: 2011-05-03 17:11:00 (Tue, 3 May 2011)
- * Revision: 2
+ * Revision: 2.1
  */
 (function($,window){
 	$.widget("mobile.actionsheet",$.mobile.widget,{
@@ -60,14 +60,11 @@
 		
 			if( $.support.cssTransitions ) {
 				this.content.animationComplete(function(event) {
-						$(event.target).removeClass("ui-actionsheet-animateIn ui-actionsheet-opening");
+						$(event.target).removeClass("ui-actionsheet-animateIn");
 					});
-				this.content.addClass("ui-actionsheet-animateIn ui-actionsheet-opening").show();
+				this.content.addClass("ui-actionsheet-animateIn").show();
 			} else {
-				this.content.addClass("ui-actionsheet-opening");
-				this.content.fadeIn(function () {
-					$(this).removeClass("ui-actionsheet-opening");
-				});
+				this.content.fadeIn();
 			}
 		},
 		close: function(event) {
@@ -75,11 +72,11 @@
 			this.wallpaper.unbind('click');
 			$(window).unbind('orientationchange.actionsheet');
 			if( $.support.cssTransitions ) {
+				this.content.addClass("ui-actionsheet-animateOut");
+				this.wallpaper.remove();
 				this.content.animationComplete(function() {
 					self.reset();
 				});
-				this.content.addClass("ui-actionsheet-animateOut");
-				this.wallpaper.remove();
 			} else {
 				this.wallpaper.remove();
 				this.content.fadeOut();
