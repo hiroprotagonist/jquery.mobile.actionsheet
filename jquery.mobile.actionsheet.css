@@ -10,16 +10,33 @@
 	text-shadow: none;
 }
 .ui-header a.actionsheet-toggle {
+	background: 
+		url(images/icons-36-white.png) -577px -3px,
+		-webkit-linear-gradient(top,  rgba(136,179,180,1) 0%,rgba(142,192,193,1) 4%,rgba(99,168,169,1) 44%,rgba(95,166,165,1) 48%,rgba(72,152,151,1) 52%,rgba(72,154,153,1) 96%,rgba(58,122,121,0.97) 100%); /* Chrome10+,Safari5.1+ */
+	background: 
+		url(images/icons-36-white.png) -577px -3px,
+		-ms-linear-gradient(top,  rgba(136,179,180,1) 0%,rgba(142,192,193,1) 4%,rgba(99,168,169,1) 44%,rgba(95,166,165,1) 48%,rgba(72,152,151,1) 52%,rgba(72,154,153,1) 96%,rgba(58,122,121,0.97) 100%); /* IE10+ */
+	background: 
+		url(images/icons-36-white.png) -577px -3px,
+		linear-gradient(to bottom,  rgba(136,179,180,1) 0%,rgba(142,192,193,1) 4%,rgba(99,168,169,1) 44%,rgba(95,166,165,1) 48%,rgba(72,152,151,1) 52%,rgba(72,154,153,1) 96%,rgba(58,122,121,0.97) 100%); /* W3C */
 	position: absolute;
-	top: 0.3em;
+	top: 5px;
 	right: 10px;
-	background: transparent;
-	background-image: url(images/icons-36-white.png);
-	background-position: -577px -3px;
 	width: 31px;
 	height: 30px;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
+	border-radius: 5px;
+	border-color: #2e3c3b #366c6d #3d7b7a #3d7b7a; 
+}
+.ui-header a.actionsheet-toggle.content-visible {
+	background:
+		url(images/icons-36-white.png) -577px -3px,
+		-webkit-linear-gradient(top,  rgba(117,152,157,1) 0%,rgba(121,160,167,1) 4%,rgba(65,120,129,1) 48%,rgba(40,100,108,1) 52%,rgba(40,102,111,0.99) 96%,rgba(32,81,88,0.99) 100%); /* Chrome10+,Safari5.1+ */
+	background:
+		url(images/icons-36-white.png) -577px -3px,,
+		-ms-linear-gradient(top,  rgba(117,152,157,1) 0%,rgba(121,160,167,1) 4%,rgba(65,120,129,1) 48%,rgba(40,100,108,1) 52%,rgba(40,102,111,0.99) 96%,rgba(32,81,88,0.99) 100%); /* IE10+ */
+	background:
+		url(images/icons-36-white.png) -577px -3px,
+		linear-gradient(to bottom,  rgba(117,152,157,1) 0%,rgba(121,160,167,1) 4%,rgba(65,120,129,1) 48%,rgba(40,100,108,1) 52%,rgba(40,102,111,0.99) 96%,rgba(32,81,88,0.99) 100%); /* W3C */
 }
 .ui-header a.actionsheet-toggle .ui-btn-corner-all {
 	-webkit-border-radius: 2px;

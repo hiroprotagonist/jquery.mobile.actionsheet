@@ -3,40 +3,31 @@
 	<head> 
 	<title>Test 1 2 3</title> 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="../jquery.mobile.actionsheet.css" />
-	<link rel="stylesheet" href="//code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" /> 
-	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script> 
-	<script src="//code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
-	<script type="text/javascript" src="../jquery.mobile.actionsheet.js"></script>
+	
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+        <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+        
+        <link rel="stylesheet" href="../jquery.mobile.actionsheet.css" />
+        <script type="text/javascript" src="../jquery.mobile.actionsheet.js"></script>
 </head> 
 <body> 
 
 <div data-role="page" id="one"> 
  
 	<div data-role="header"> 
-		<h1>Multi-page</h1> 
+		<h1>Page One</h1> 
 	</div><!-- /header --> 
  
 	<div data-role="content" >	
-		<h2>One</h2>
-		<p><a href="#two" data-role="button">Show page "two"</a></p>
+		<h2>Multi page example: Page #1</h2>
+		<p><a href="#two" data-role="button">Goto Page #2</a></p>
 		<a data-icon="plus" data-role="actionsheet" data-sheet='sheet1'>Open</a>
-		<div id="sheet1" data-role="content"> 
-			<ul id="sizes_list_select" data-role="listview" data-inset="false" data-theme="b">
-				<li data-theme="b" data-icon="check" >
-					First Content
-				</li>
-				<li data-theme="b" data-icon="false" >
-					<h2>Moin Moin</h2>	
-				</li>
-				<a href='#' data-rel='close' data-role="button">Close</a>
-			</ul>
+		<div id="sheet1"> 
+			<h1>Hi: Page #1</h1>
+			<a href='#' data-rel='close' data-role="button">Close</a>
 		</div>
 	</div><!-- /content --> 
-	
-	<div data-role="footer" data-theme="d"> 
-		<h4>Page Footer</h4> 
-	</div><!-- /footer --> 
 </div><!-- /page one --> 
  
 <!-- Start of second page: #two --> 
@@ -49,25 +40,14 @@
 	</div><!-- /header --> 
  
 	<div data-role="content" data-theme="a">
-		<h2>Two</h2>
-		<p><a href="#one" data-role="button">Show page "one"</a></p>
+		<h2>Multi page example: Page #2</h2>
+		<p><a href="#one" data-role="button">Goto Page #1</a></p>
 		<a data-icon="plus" data-role="actionsheet" data-sheet="sheet0">Open</a>
-		<div id="sheet0" data-role="content"> 
-			<ul id="sizes_list_select" data-role="listview" data-inset="false" data-theme="b">
-				<li data-theme="b" data-icon="check"  >
-					Second Content
-				</li>
-				<li data-theme="b" data-icon="false" >
-					<h2>Ahoi</h2>	
-				</li>
-				<a href='#' data-rel='close' data-role="button">Close</a>
-			</ul>
+		<div id="sheet0"> 
+		    <h1>Hi: Page #2</h1>
+		    <a href='#' data-rel='close' data-role="button">Close</a>
 		</div>
 	</div><!-- /content --> 
-	
-	<div data-role="footer"> 
-		<h4>Page Footer</h4> 
-	</div><!-- /footer --> 
 </div><!-- /page two --> 
  
 </body> 
