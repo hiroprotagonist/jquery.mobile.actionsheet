@@ -80,7 +80,7 @@
 			$(window).unbind('orientationchange.actionsheet');
 			
 			if ( (typeof this.wallpaper) !== 'undefined' ) {
-				this.wallpaper.unbind('click')
+				this.wallpaper.unbind('click');
 			};
 			var self = this;
 			this.content.animationComplete(function() {
