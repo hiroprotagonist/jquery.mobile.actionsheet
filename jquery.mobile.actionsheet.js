@@ -1,25 +1,18 @@
 /*
- * jquery.mobile.actionsheet v3
+ * jquery.mobile.actionsheet v2
  *
- * Copyright (c) 2011, Stefan Gebhardt
+ * Copyright (c) 2011, Stefan Gebhardt and Tobias Seelinger
  * Dual licensed under the MIT and GPL Version 2 licenses.
  * 
- * Revision: 3
+ * Date: 2011-05-03 17:11:00 (Tue, 3 May 2011)
+ * Revision: 2
  */
 (function($,window){
 	$.widget("mobile.actionsheet",$.mobile.widget,{
 		wallpaper: undefined,
 		content: undefined,
-		isOpen:  false,
 		_init: function() {
 			var self = this;
-			
-			// Avoid multiple initialisation
-			if(typeof this.element.data('as_initialized') !== 'undefined') {
-				return;
-			}
-			this.element.data('as_initialized', true);
-			
 			this.content = ((typeof this.element.jqmData('sheet') !== 'undefined')
 				? $('#' + this.element.jqmData('sheet'))
 				: this.element.next('div')).addClass('ui-actionsheet-content');
@@ -31,33 +24,34 @@
 			//setup command buttons
 			this.content.find(':jqmData(role="button")').filter(':jqmData(rel!="close")')
 				.addClass('ui-actionsheet-commandbtn')
-				.bind('click',  $.proxy( self.close, this ));
+				.bind('click', function(){
+					self.reset();
+				});
 			//setup close button
 			this.content.find(':jqmData(rel="close")')
 				.addClass('ui-actionsheet-closebtn')
-				.bind('click', $.proxy( self.close, this ));
-			this.element.bind('click', $.proxy( self.open, this ) );
+				.bind('click', function(){
+					self.close();
+				});
+			this.element.bind('click', function(){
+				self.open();
+			});
 			if( this.element.parents( ':jqmData(role="content")' ).length !== 0 ) {
 				this.element.buttonMarkup();
 			}
 		},
- 		open: function() {
-			if ( this.isOpen ) {
-				return;
-			}
-			this.isOpen = true;
-			//this.element.unbind('click'); //avoid twice opening
+		open: function() {
+			this.element.unbind('click'); //avoid twice opening
 			this.element.addClass('content-visible');
 			var cc= this.content.parents(':jqmData(role="page")');
 			this.wallpaper= $('<div>', {'class':'ui-actionsheet-wallpaper'})
 				.appendTo(cc)
-				.show()
-				.addClass ( this.element.attr('id'));
+				.show();
 			
 			//window.setTimeout($.proxy(this._wbc, this), 500);
 			this.wallpaper.bind(
-				"click",
-				$.proxy(function() { this.close(); },this));
+					"click",
+					$.proxy(function() { this.close(); },this));
 			this._positionContent();
 
 			$(window).bind('orientationchange.actionsheet',$.proxy(function () {
@@ -66,8 +60,8 @@
 		
 			if( $.support.cssTransitions ) {
 				this.content.animationComplete(function(event) {
-					$(event.target).removeClass("ui-actionsheet-animateIn ui-actionsheet-opening");
-				});
+						$(event.target).removeClass("ui-actionsheet-animateIn ui-actionsheet-opening");
+					});
 				this.content.addClass("ui-actionsheet-animateIn ui-actionsheet-opening").show();
 			} else {
 				this.content.addClass("ui-actionsheet-opening");
@@ -77,24 +71,34 @@
 			}
 		},
 		close: function(event) {
-			$(window).unbind('orientationchange.actionsheet');
-			
-			if ( (typeof this.wallpaper) !== 'undefined' ) {
-				this.wallpaper.unbind('click');
-			};
 			var self = this;
-			this.content.animationComplete(function() {
-				self.content
-				    .removeClass("ui-actionsheet-animateOut")
-				    .removeClass("ui-actionsheet-animateIn")
-				    .hide();
-				if ( (typeof self.wallpaper) !== 'undefined' ) {
-				    self.wallpaper.remove();
-				}
-				self.isOpen = false; // Resetting State
+			this.wallpaper.unbind('click');
+			$(window).unbind('orientationchange.actionsheet');
+			if( $.support.cssTransitions ) {
+				this.content.animationComplete(function() {
+					self.reset();
+				});
+				this.content.addClass("ui-actionsheet-animateOut");
+				this.wallpaper.remove();
+			} else {
+				this.wallpaper.remove();
+				this.content.fadeOut();
+				this.element.bind('click', function(){
+					self.open();
+				});
+			}
+			self.element.removeClass('content-visible');
+		},
+		reset: function() {
+			this.wallpaper.remove();
+			this.content
+				.removeClass("ui-actionsheet-animateOut")
+				.removeClass("ui-actionsheet-animateIn")
+				.hide();
+			var self= this;
+			this.element.bind('click', function(){
+				self.open();
 			});
-			this.content.addClass("ui-actionsheet-animateOut");
-			this.element.removeClass('content-visible');
 		},
 		_positionContent: function() {
 			var height = $(window).height(),
@@ -107,7 +111,7 @@
 		}
 	});
 
-	$( ":jqmData(role='page')" ).live( "pageinit", function() { 
+	$.mobile.document.bind( "pageinit", function( e ) { 
 		$( ":jqmData(role='actionsheet')", this ).each(function() {
 			$(this).actionsheet();
 		});

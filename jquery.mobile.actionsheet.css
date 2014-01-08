@@ -10,34 +10,18 @@
 	text-shadow: none;
 }
 .ui-header a.actionsheet-toggle {
-	background: 
-		url(images/icons-36-white.png) -577px -3px,
-		-webkit-linear-gradient(top,  rgba(136,179,180,1) 0%,rgba(142,192,193,1) 4%,rgba(99,168,169,1) 44%,rgba(95,166,165,1) 48%,rgba(72,152,151,1) 52%,rgba(72,154,153,1) 96%,rgba(58,122,121,0.97) 100%); /* Chrome10+,Safari5.1+ */
-	background: 
-		url(images/icons-36-white.png) -577px -3px,
-		-ms-linear-gradient(top,  rgba(136,179,180,1) 0%,rgba(142,192,193,1) 4%,rgba(99,168,169,1) 44%,rgba(95,166,165,1) 48%,rgba(72,152,151,1) 52%,rgba(72,154,153,1) 96%,rgba(58,122,121,0.97) 100%); /* IE10+ */
-	background: 
-		url(images/icons-36-white.png) -577px -3px,
-		linear-gradient(to bottom,  rgba(136,179,180,1) 0%,rgba(142,192,193,1) 4%,rgba(99,168,169,1) 44%,rgba(95,166,165,1) 48%,rgba(72,152,151,1) 52%,rgba(72,154,153,1) 96%,rgba(58,122,121,0.97) 100%); /* W3C */
-	position: absolute;
-	top: 5px;
-	right: 10px;
-	width: 31px;
-	height: 30px;
+	background:url(images/actionsheet-toggle.svg) no-repeat scroll 4px 4px;
+	width: 8px;
+	height: 15px;
 	border-radius: 5px;
 	border-color: #2e3c3b #366c6d #3d7b7a #3d7b7a; 
 }
-.ui-header a.actionsheet-toggle.content-visible {
-	background:
-		url(images/icons-36-white.png) -577px -3px,
-		-webkit-linear-gradient(top,  rgba(117,152,157,1) 0%,rgba(121,160,167,1) 4%,rgba(65,120,129,1) 48%,rgba(40,100,108,1) 52%,rgba(40,102,111,0.99) 96%,rgba(32,81,88,0.99) 100%); /* Chrome10+,Safari5.1+ */
-	background:
-		url(images/icons-36-white.png) -577px -3px,,
-		-ms-linear-gradient(top,  rgba(117,152,157,1) 0%,rgba(121,160,167,1) 4%,rgba(65,120,129,1) 48%,rgba(40,100,108,1) 52%,rgba(40,102,111,0.99) 96%,rgba(32,81,88,0.99) 100%); /* IE10+ */
-	background:
-		url(images/icons-36-white.png) -577px -3px,
-		linear-gradient(to bottom,  rgba(117,152,157,1) 0%,rgba(121,160,167,1) 4%,rgba(65,120,129,1) 48%,rgba(40,100,108,1) 52%,rgba(40,102,111,0.99) 96%,rgba(32,81,88,0.99) 100%); /* W3C */
+.ui-header a.actionsheet-toggle:HOVER {
+	background:url(images/actionsheet-toggle.svg) no-repeat scroll 4px 4px;
+	border-color: #2e3c3b #366c6d #3d7b7a #3d7b7a;
 }
+
+.ui-header a.actionsheet-toggle.content-visible {}
 .ui-header a.actionsheet-toggle .ui-btn-corner-all {
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
@@ -70,15 +54,7 @@
 	z-index: 20;
 	box-shadow: 0px 0px 12px rgba(0,0,0,.6);
 	padding: 6px;
-}
-.ui-actionsheet-closebtn {
-	color: white;
-	text-shadow: none;
-	background: #5E6369; /* old browsers */
-	background: -moz-linear-gradient(top, #5E6369 0%, #52575D 1%, #40454E 46%, #141D26 50%, #252F38 98%, #303339 100%); /* firefox */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5E6369), color-stop(1%,#52575D), color-stop(46%,#40454E), color-stop(50%,#141D26), color-stop(98%,#252F38), color-stop(100%,#303339)); /* webkit */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5E6369', endColorstr='#303339',GradientType=0 ); /* ie */
-	background: -o-linear-gradient(top, #5E6369 0%,#52575D 1%,#40454E 46%,#141D26 50%,#252F38 98%,#303339 100%); /* opera */
+	font-weight: bold;
 }
 @-webkit-keyframes actionsheet-open-fade {
   from {
@@ -161,10 +137,26 @@
 	-moz-animation-duration: 500ms;
 }
 /* CMD Button */
-.ui-actionsheet-commandbtn.ui-btn-up-a {
+.ui-actionsheet-closebtn.ui-btn,
+.ui-actionsheet-closebtn.ui-btn:HOVER,
+.ui-actionsheet-closebtn.ui-btn:VISITED {
+	color: white;
+	text-shadow: none;
+	background: #5E6369;
+	background: -moz-linear-gradient(top, #5E6369 0%, #52575D 1%, #40454E 46%, #141D26 50%, #252F38 98%, #303339 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5E6369), color-stop(1%,#52575D), color-stop(46%,#40454E), color-stop(50%,#141D26), color-stop(98%,#252F38), color-stop(100%,#303339));
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5E6369', endColorstr='#303339',GradientType=0 );
+	background: -o-linear-gradient(top, #5E6369 0%,#52575D 1%,#40454E 46%,#141D26 50%,#252F38 98%,#303339 100%);
+	font-weight: normal;
+	font-family: RobotoRegular;
 	border: 1px solid 		#222;
-	background: 			#333333;
-	font-weight: bold;
+}
+.ui-actionsheet-commandbtn.ui-btn,
+.ui-actionsheet-commandbtn.ui-btn:VISITED {
+	border: 1px solid 		#222;
+	background:				#333333;
+	font-weight: normal;
+	font-family: RobotoRegular;
 	color: 					#fff;
 	text-shadow: 0 -1px 1px #000;
 	background-image: -moz-linear-gradient(top, 
@@ -175,13 +167,11 @@
 		color-stop(1, 		#333333));
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#555555', EndColorStr='#333333')";
 }
-.ui-btn-up-a a.ui-link-inherit.ui-actionsheet-commandbtn {
-	color: 					#fff;
-}
-.ui-actionsheet-commandbtn.ui-btn-hover-a {
+.ui-actionsheet-commandbtn.ui-btn:HOVER {
 	border: 1px solid 		#000;
 	background: 			#444444;
-	font-weight: bold;
+	font-weight: normal;
+	font-family: RobotoRegular;
 	color: 					#fff;
 	text-shadow: 0 -1px 1px #000;
 	background-image: -moz-linear-gradient(top, 
@@ -192,13 +182,11 @@
 		color-stop(1, 		#444444));
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#666666', EndColorStr='#444444')";
 }
-.ui-btn-hover-a a.ui-link-inherit.ui-actionsheet-commandbtn {
-	color: 					#fff;
-}
-.ui-btn-down-a.ui-actionsheet-commandbtn {
+.ui-actionsheet-commandbtn.ui-btn:ACTIVE {
 	border: 1px solid 		#000;
 	background: 			#3d3d3d;
-	font-weight: bold;
+	font-weight: normal;
+	font-family: RobotoRegular;
 	color: 					#fff;
 	text-shadow: 0 -1px 1px #000;
 	background-image: -moz-linear-gradient(top, 
@@ -208,14 +196,5 @@
 		color-stop(0, 		#333333),
 		color-stop(1, 		#5a5a5a));
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#333333', EndColorStr='#5a5a5a')";
-}
-.ui-btn-down-a a.ui-link-inherit.ui-actionsheet-commandbtn {
-	color: 					#fff;
-}
-.ui-btn-up-a.ui-actionsheet-commandbtn,
-.ui-btn-hover-a.ui-actionsheet-commandbtn,
-.ui-btn-down-a.ui-actionsheet-commandbtn {
-	font-family: Helvetica, Arial, sans-serif;
-	text-decoration: none;
 }
 /* /CMD Button */
